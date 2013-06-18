@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# Kenneth Moy
+# 6/18/2013
 # Back-End Web Development - HW #1 Secret Number Game
 
 # Intro and Welcome Screen
