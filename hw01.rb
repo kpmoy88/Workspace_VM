@@ -33,9 +33,9 @@ guesses = 3
 # Determine if guess is higher or lower then the secret number
 def higher_lower_num(guess_num,secret_num)
 	if(guess_num > secret_num)
-		puts "You guessed too high"
+		puts "You guessed too high."
 	else
-		puts "You guessed too low"
+		puts "You guessed too low."
 	end
 end
 
@@ -53,10 +53,10 @@ while guesses > 0
 		puts "YOU LOSE. GAME SESSION OVER"
 		guesses = 0
 	elsif guess_number != correct_num && (1..10).member?(guess_number) # Incorrect guess and more guesses available
-		puts "You did not guess the number"
+		puts "You did not guess the number."
 		guesses -= 1
-		puts "You have #{guesses} guesses to guess the number."
 		higher_lower_num(guess_number,correct_num)
+		puts "You have #{guesses} guesses to guess the number."
 	else # Incorrect input
 		puts "Wrong Input."
 		puts "Enter a number between 1 and 10."
