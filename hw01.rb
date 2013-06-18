@@ -25,7 +25,7 @@ def rand_num(low,high)
 end
 
 # Generate random number between 1 and 10
-correct_num = rand_num(1,10)
+secret_number = rand_num(1,10)
 
 # Set number of guesses
 guesses = 3
@@ -39,24 +39,33 @@ def higher_lower_num(guess_num,secret_num)
 	end
 end
 
+# Determine which guess output to inform user
+def num_guess_ouput(guess_num)
+	if guess_num > 1
+		puts "You have #{guess_num} guesses to guess the number."
+	else
+		puts "You have #{guess_num} guess to guess the number."
+	end
+end
+
 # Regulates users guesses to correct conditional statement
-while guesses > 0 
+while guesses > 0 # Loop until no more guesses
 	print "What number will you guess(1-10)? "
 	guess_number = gets.to_i
-	if correct_num == guess_number # Correct Guess
+	if secret_number == guess_number # Correct Guess
 		puts "Congratulations, You win!"
-		puts "You guessed the correct number which was #{correct_num}."
+		puts "You guessed the correct number which was #{secret_number}."
 		puts "Game Session Over"
 		guesses = 0
-	elsif (guess_number != correct_num) && guesses == 1 && (1..10).member?(guess_number) #Incorrect guess and last guess
-		puts "You did not guess the number. The number was #{correct_num}."
+	elsif (guess_number != secret_number) && guesses == 1 && (1..10).member?(guess_number) #Incorrect guess and last guess
+		puts "You did not guess the number. The number was #{secret_number}."
 		puts "YOU LOSE. GAME SESSION OVER"
 		guesses = 0
-	elsif guess_number != correct_num && (1..10).member?(guess_number) # Incorrect guess and more guesses available
+	elsif guess_number != secret_number && (1..10).member?(guess_number) # Incorrect guess and more guesses available
 		puts "You did not guess the number."
 		guesses -= 1
-		higher_lower_num(guess_number,correct_num)
-		puts "You have #{guesses} guesses to guess the number."
+		higher_lower_num(guess_number,secret_number)
+		num_guess_ouput(guesses)
 	else # Incorrect input
 		puts "Wrong Input."
 		puts "Enter a number between 1 and 10."
